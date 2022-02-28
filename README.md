@@ -28,6 +28,7 @@ bv.show_boxes(labels=[train_lbl, test_lbl],
 FP, FN, correct = bv.get_fpfn(**kargs)      # calculate FP, FN and Correct boxes
 bv.show_fpfn(FP, FN, correct)               # show FP, FN and Correct boxes calculated just now
 ```
+![sample](https://github.com/BarCodeReader/ODToolkit/blob/master/asset/show_fpfn.png)
 
 ## Unit-test
 For unit-test, we use ```Behave```, which provides a very flexible environment for all kinds of tests
