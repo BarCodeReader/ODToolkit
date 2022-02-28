@@ -1,0 +1,4 @@
+python setup.py sdist
+
+上传
+python -m twine upload dist/*
