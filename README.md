@@ -10,20 +10,15 @@ To install this tool, simply
 pip install Object_Detection_Toolkit
 ```
 ## Functions
-There are few functions in the Visualizer object.
-1. ```BoxVisualizer.show_boxes(**kargs)```: show all the boxes in a dataset, including there actual positions, histogram and heatmaps
-
-2. ```BoxVisualizer.get_fpfn(**kargs)```: calculate FP, FN and correct predictions giving GT and Pred
-3. ```BoxVisualizer.show_fpfn(**kargs)```: show FP, FN and correct boxes obtained from step 2
-
-## Usage
-To use, simply follow belows snippet:
 | **Component**                  | **Description**                                                         |
 |--------------------------------|-------------------------------------------------------------------------|
 | Analysis()                     | Module for False-Positive and False-Negative analysis                   |
 | Transformation()               | Module for transformation between image xy plane and homography plane   |
 | Visualization()                | Module for False-Positive and False-Negative visualization              |
 | Dataset.DatasetMaker()         | Module for train/test split and sort into folders for training          |
+## Usage
+To use, simply follow belows snippet:
+
 ```
 # ===================================
 # demo for Analysis and Visualization
