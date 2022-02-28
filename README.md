@@ -1,6 +1,9 @@
 # Object_Detection_Toolkit
 A tool kit for checking boxes in a dataset and visualize predictions' distribution
 
+## PyPI
+Project is listed under: https://pypi.org/project/ODToolkit/
+
 ## Install
 To install this tool, simply 
 ```
@@ -15,18 +18,28 @@ There are few functions in the Visualizer object.
 
 ## Usage
 To use, simply follow belows snippet:
+| **Component**                  | **Description**                                                         |
+|--------------------------------|-------------------------------------------------------------------------|
+| Analysis()                     | Module for False-Positive and False-Negative analysis                   |
+| Transformation()               | Module for transformation between image xy plane and homography plane   |
+| Visualization()                | Module for False-Positive and False-Negative visualization              |
+| Dataset.DatasetMaker()         | Module for train/test split and sort into folders for training          |
 ```
-from Object_Detection_Toolkit.Visualizer import BoxVisualizer
+# ===================================
+# demo for Analysis and Visualization
+# ===================================
+from ODToolkit import Analysis, Visualization
 
-bv = BoxVisualizer(img_w=640, img_h=480)    # image size of your dataset
+# get FP, FN, correct
+FP, FN, correct = Analysis.get_fpfn(gt_lbl=gt_lbl,       # 假定已经准备好了
+                                    pred_lbl=pred_lbl,   # 假定已经准备好了
+                                    img_w=640,
+                                    img_h=480,
+                                    iou_thresh=0.25)
 
-train_lbl = [...]                           # list of your train label txt
-test_lbl = [...]                            # list of your test label txt
-bv.show_boxes(labels=[train_lbl, test_lbl], 
-              mode=['train', 'test'])       # show the boxes in a dataset
-
-FP, FN, correct = bv.get_fpfn(**kargs)      # calculate FP, FN and Correct boxes
-bv.show_fpfn(FP, FN, correct)               # show FP, FN and Correct boxes calculated just now
+# visualize FP, FN, correct
+visualizer = Visualization.BoxVisualizer(img_w=640, img_h=480)
+visualizer.show_fpfn(FP, FN, correct, figsize=[15,10])
 ```
 ![sample](https://github.com/BarCodeReader/ODToolkit/blob/master/asset/show_fpfn.png)
 
